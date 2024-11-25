@@ -1,0 +1,39 @@
+name: Build Windows Executable
+
+on:
+  push:
+    branches:
+      - main  # You can change this to your desired branch (e.g., master)
+
+jobs:
+  build:
+    runs-on: windows-latest  # This tells GitHub to run the job on a Windows server
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'  # You can change this to the version you're using
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install pyinstaller
+          # If you have other dependencies, you can install them here (e.g., pip install -r requirements.txt)
+
+      # Build the executable using PyInstaller
+      - name: Build executable
+        run: |
+          pyinstaller --onedir --add-data="Results;Results" --add-data="Images_to_test;Images_to_test" Tool.py
+
+      # Upload the executable as an artifact so you can download it later
+      - name: Upload the executable as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: WindowsExecutable
+          path: dist/Tool.exe  # This path is where PyInstaller puts the executable by default
