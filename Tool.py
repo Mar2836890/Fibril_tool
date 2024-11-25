@@ -42,7 +42,7 @@ def algorithms(input_data, param_list):
         
     try:
         results = []
-        os.path.join(base_dir, 'Results')
+        os.path.join(app_path, 'Results')
         for file in files:
             
             file1 = str(file)
@@ -277,14 +277,24 @@ def reset_parameters():
 
 if __name__ == '__main__':    
     
-    # Get the base path for both normal and bundled executable runs
-    base_dir = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
-    base_dir = os.getcwd()
-    print(base_dir, "eijfhiweufhouwebhioujhjoi")
+    # Determine if the script is running as a bundled executable (PyInstaller)
+    if getattr(sys, 'frozen', False):  # Running as a PyInstaller executable
+        # Get the folder where the executable is located (not the _internal folder)
+        app_path = os.path.dirname(sys.executable)
+    else:
+        # Running as a script (development mode)
+        app_path = os.path.dirname(os.path.abspath(__file__))  # The current script directory
 
-    images_test_folder = os.path.join(base_dir, 'Images_to_test')
-    results_folder = os.path.join(base_dir, 'Results')
+    # Define the relative paths for Results and Images_to_test folders
+    results_folder = os.path.join(app_path, 'Results')
+    images_test_folder = os.path.join(app_path, 'Images_to_test')
 
+    # Ensure that the directories exist, otherwise create them
+    if not os.path.exists(results_folder):
+        os.makedirs(results_folder)
+
+    if not os.path.exists(images_test_folder):
+        os.makedirs(images_test_folder)
     
     # list of changeble parameters per algorithm
     alg_param = {
