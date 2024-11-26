@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['Z:\\Users\\marjoleinvantol\\Documents\\GitHub\\Fibril_tool\\tool.py'],
+    ['Tool.py'],
     pathex=[],
     binaries=[],
-    datas=[('Z:\\Users\\marjoleinvantol\\Documents\\GitHub\\Fibril_tool\\Results', 'Results'), ('Z:\\Users\\marjoleinvantol\\Documents\\GitHub\\Fibril_tool\\Images_to_test', 'Images_to_test')],
+    datas=[('Images_to_test', 'Images_to_test'), ('Results', 'Results')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -21,7 +21,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='tool',
+    name='Tool',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -40,5 +40,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='tool',
+    name='Tool',
 )

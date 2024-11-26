@@ -140,18 +140,17 @@ def complete_processing(result, result_file_path):
     path = os.path.join(results_folder, result_file_path)
 
     # Open the CSV file in the default application
-    subprocess.run(["xdg-open", path], check=True)
-    print("fejnfjenfjnej")
-    #     if platform.system() == "Windows":
-    #         os.startfile(path)
+    try:
+        if platform.system() == "Windows":
+            os.startfile(path)
             
-    #     elif platform.system() == "Darwin":  # macOS
-    #         subprocess.run(["open", path], check=True)
-    #     else:  # Linux
-    #         subprocess.run(["xdg-open", path], check=True)
-    # except Exception as e:
-    #     print(f"Error opening file: {e}")
-    #     messagebox.showerror("Error", f"Could not open the file: {e}")
+        elif platform.system() == "Darwin":  # macOS
+            subprocess.run(["open", path], check=True)
+        else:  # Linux
+            subprocess.run(["xdg-open", path], check=True)
+    except Exception as e:
+        print(f"Error opening file: {e}")
+        messagebox.showerror("Error", f"Could not open the file: {e}")
     
 
 # Function to update the UI with the current file being processed

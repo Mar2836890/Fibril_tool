@@ -11,10 +11,11 @@ import numpy as np
 import math
 import cv2
 import time
-import matplotlib.pyplot as plt
 from fitter import Fitter
 import csv
 import os
+from scipy import stats
+
 
 
 #--------------Parameters------------------------------------------------------------------
@@ -393,8 +394,7 @@ def avg_len_calc(
         if sarcomere_length > 1:
             distance_list.append(sarcomere_length)
 
-    # plt.hist(distance_list, 20, (8,12))
-    # plt.show()
+
     #result printing
     if len(distance_list) != 0:
         avg_distance = (sum(distance_list)/len(distance_list))/pixel_to_microm
@@ -476,8 +476,6 @@ def four_calc(
     upper_bounds = calculate_bounds(len(transformed_image), len(transformed_image[0]), lower_s_len, pixel_to_microm)
     center = (round(len(transformed_image[0])/2), round(len(transformed_image)/2))
 
-
-    print('hello',lower_bounds, upper_bounds)
     #start search
     i = lower_bounds
     brightness_dict = {}
@@ -486,7 +484,7 @@ def four_calc(
     interval = set_interval(full_coverage, interval_for_full_coverage, lines_from_center)
     while i < upper_bounds: #radius interval
         j = 0
-        total_brightness = 0
+        total_brightness = 0.0
         k = 0
         while j < 2 * math.pi: #angle interval
             coords = polar_to_rec(i, j)
@@ -528,7 +526,6 @@ def four_calc(
 
     maximal = max(brightness_list)
     max_index = brightness_list.index(maximal)
-    
     if max_index > 5:
         brightness_list = brightness_list[:min([len(brightness_list), (max_index *2)])]
         # brightness_list = brightness_list[max([0, (max_index - 20)]):]
@@ -539,6 +536,7 @@ def four_calc(
     #create a final list which can be used to graph and fit a distribution
     final_list = []
     minimal = min(brightness_list)
+
     for elements in weight_list:
         loop_times = elements[1] - minimal
         i = 0
@@ -546,20 +544,13 @@ def four_calc(
             final_list.append(elements[0])
             i += 1
 
-
-    #fit a normal distribution to the data
-    ripped = Fitter(final_list, bins=len(brightness_list), distributions=['norm'])
-    ripped.fit()
-
+    
+    mu, std = stats.norm.fit(final_list)
+    
     #calculate final value
-    four_len = ripped.fitted_param['norm'][0]
+    four_len = mu
     microm_len = calc_microm_dist(len(transformed_image), len(transformed_image[0]), four_len, pixel_to_microm)
 
-    #optional, enable to show graph
-    # if visualize:
-    #     ripped.summary()
-    #     # plt.hist(final_list)
-    #     plt.show()
-    
+
     return microm_len
 
