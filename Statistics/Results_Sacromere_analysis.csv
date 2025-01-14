@@ -1,0 +1,82 @@
+﻿Hart Sample;Sample condition; Average sacromere length (um); ratio (ratio of z-disks and conected lines); z-lines amount; distances amount (number of connecting lines)
+Inverse FFT of MH28_MiddleRight.tif;Control;1,813863045;0,584665804;23953;28009
+Inverse FFT of MH28_TopRight.tif;Control;1,799849798;0,628863923;30086;37840
+Inverse FFT of MH28_BottomRight.tif;Control;1,820278033;0,622164805;32317;40213
+Inverse FFT of MH28_MiddleMiddle.tif;Control;1,81725731;0,585917453;22993;26944
+Inverse FFT of MH28_BottomMiddle.tif;Control;1,848773478;0,575365391;26889;30942
+Inverse FFT of MH28_TopMiddle.tif;Control;1,824718519;0,617373426;19455;24022
+Inverse FFT of MH28_MiddleLeft.tif;Control;1,836726487;0,560637471;30872;34616
+Inverse FFT of MH28_TopLeftt.tif;Control;1,793016981;0,561436973;18873;21192
+Inverse FFT of MH28_BottomLeft.tif;Control;1,817721933;0,564413459;29691;33516
+Inverse FFT of MH27_MidddleLeft.tif;Stimulated;1,819656756;0,498296422;32872;32760
+Inverse FFT of MH27_BottomMiddle.tif;Stimulated;1,821447354;0,500469185;29839;29867
+Inverse FFT of MH27_TopLeft.tif;Stimulated;1,824187039;0,512010578;27226;27880
+Inverse FFT of MH27_BottomRight.tif;Stimulated;1,827576836;0,613928423;21711;26658
+Inverse FFT of MH27_MidddleRight.tif;Stimulated;1,850203882;0,552780199;26383;29168
+Inverse FFT of MH27_TopRight.tif;Stimulated;1,852048005;0,560911192;33319;37378
+Inverse FFT of MH27_MidddleMiddle.tif;Stimulated;1,826180473;0,462056969;13797;12750
+Inverse FFT of MH27_BottomLeft.tif;Stimulated;1,830579604;0,520948234;31005;32304
+Inverse FFT of MH27_TopMiddle.tif;Stimulated;1,827914078;0,564402448;25822;29148
+Inverse FFT of MH25_TopMiddle.tif;Control;1,806313289;0,676152335;33085;44741
+Inverse FFT of MH25_TopRight.tif;Control;1,798693518;0,581754701;28928;33658
+Inverse FFT of MH25_TopLeft.tif;Control;1,819449871;0,58424805;28333;33107
+Inverse FFT of MH25_BottomLeft.tif;Control;1,843614397;0,497271777;30606;30439
+Inverse FFT of MH25_BottomRight.tif;Control;1,830682499;0,546417445;25680;28064
+Inverse FFT of MH25_MiddleRight.tif;Control;1,81275976;0,604410409;28206;34096
+Inverse FFT of MH25_MiddleMiddle.tif;Control;1,820721154;0,63272161;32749;41442
+Inverse FFT of MH25_BottomMiddle.tif;Control;1,81066517;0,561671886;29057;32641
+Inverse FFT of MH25_MiddleLeft.tif;Control;1,809573543;0,587581528;26678;31351
+Inverse FFT of MH8.1_Topcenter.tif;Stimulated;1,818858796;0,580040733;22095;25632
+Inverse FFT of MH8.1_Bottommiddle.tif;Stimulated;1,801474973;0,308354932;13118;8090
+Inverse FFT of MH8.1_Middlecenter.tif;Stimulated;1,81751928;0,533658134;30275;32313
+Inverse FFT of MH8.1_Middleleft.tif;Stimulated;1,822516747;0,57357473;25960;29780
+Inverse FFT of MH8.1_Middleright.tif;Stimulated;1,827116005;0,486668096;13989;13616
+Inverse FFT of MH8.1_Bottomright.tif;Stimulated;1,814722139;0,480403661;21305;20470
+Inverse FFT of MH8.1_Bottomleft.tif;Stimulated;1,811001191;0,517854367;25736;26655
+Inverse FFT of MH8.1_Topleft_.tif;Stimulated;1,828880359;0,616515883;24649;30393
+Inverse FFT of MH8.1_Topright.tif;Stimulated;1,847623735;0,618125198;18946;23422
+Inverse FFT of MH8.2_Bottommiddle_2.tif side 2;Stimulated;1,819379456;0,455737592;29054;26482
+Inverse FFT of MH8.2_Topmiddle_2.tif side 2;Stimulated;1,821965235;0,689967012;35164;48524
+Inverse FFT of MH8.2_Topleft_2.tif side 2;Stimulated;1,78523422;0,543800271;25114;27314
+Inverse FFT of MH8.2_Middleleft_2.tif side 2;Stimulated;1,83474957;0,408412288;13932;11380
+Inverse FFT of MH8.2_Bottomright_2.tif side 2;Stimulated;1,817486574;0,55463831;28588;31712
+Inverse FFT of MH8.2_Middlelright_2.tif side 2;Stimulated;1,825138792;0,517661545;38983;40360
+Inverse FFT of MH8.2_Bottomleft_2.tif side 2;Stimulated;1,801724425;0,452289728;21924;19832
+Inverse FFT of MH8.2_Middlemiddle_2.tif side 2;Stimulated;1,815999001;0,526275715;34804;36633
+Inverse FFT of MH8.2_Topright_2.tif side 2;Stimulated;1,828193228;0,667033572;29072;38784
+Inverse FFT of MH7_middlemiddle.tif;Control;1,814284007;0,482579557;22531;21746
+Inverse FFT of MH7_Bottommiddle.tif;Control;1,816972056;0,434694769;18314;15922
+Inverse FFT of MH7_Middleright-1.tif;Control;1,827590589;0,688375537;33765;46486
+Inverse FFT of MH7_Topright.tif;Control;1,835580378;0,583206228;31470;36707
+Inverse FFT of MH7_Topleft-1.tif;Control;1,851135601;0,574445367;8429;9684
+Inverse FFT of MH7_Middleleft.tif;Control;1,822973418;0,593765271;34789;41313
+Inverse FFT of MH7_Bottomleft-1.tif;Control;1,808783839;0,457275433;22844;20892
+Inverse FFT of MH7_Topmiddle.tif;Control;1,814699409;0,583625623;32502;37938
+Inverse FFT of MH7_Bottomright.tif;Control;1,812678183;0,580114424;28840;33461
+Inverse FFT of MH21_MiddleRight-1.tif;Control;1,83165647;0,493758411;21549;21280
+Inverse FFT of MH21_BottomRight-1.tif;Control;1,821861532;0,407545647;19826;16160
+Inverse FFT of MH21_BottomLeft-1.tif;Control;1,829542404;0,48454394;28209;27337
+Inverse FFT of MH21_MiddleLeft-1.tif;Control;1,804037595;0,396099135;13638;10804
+Inverse FFT of MH21_MiddleMiddle-1.tif;Control;1,802709496;0,483614697;15105;14610
+Inverse FFT of MH21_TopMiddle-1.tif;Control;1,823175794;0,485425126;16501;16020
+Inverse FFT of MH21_TopLeft-1.tif;Control;1,79725742;0,510166462;17902;18266
+Inverse FFT of MH21_BottomMiddle-1.tif;Control;1,818374478;0,359713959;16641;11972
+Inverse FFT of MH21_TopRight-1.tif;Control;1,854794929;0,576118027;21690;24992
+Inverse FFT of MH26_MiddleMiddle.tif;Stimulated;1,818852822;0,565790843;19220;21749
+Inverse FFT of MH26_TopMiddle.tif;Stimulated;1,765973476;0,591232694;25424;30063
+Inverse FFT of MH26_BottomMiddle.tif;Stimulated;1,811230549;0,448867633;21327;19146
+Inverse FFT of MH26_BottomRight.tif;Stimulated;1,794574312;0,470496803;17049;16043
+Inverse FFT of MH26_MiddleRight.tif;Stimulated;1,791452176;0,473375079;20601;19504
+Inverse FFT of MH26_TopRight.tif;Stimulated;1,771967043;0,557323703;25199;28088
+Inverse FFT of MH26_MiddleLeft.tif;Stimulated;1,784232655;0,49889187;17146;17108
+Inverse FFT of MH26_TopLeft.tif;Stimulated;1,819450256;0,649694247;32052;41648
+Inverse FFT of MH26_BottomLeft.tif;Stimulated;1,824984566;0,504028838;28296;28524
+Inverse FFT of MH5_BottomRight.tif;Stimulated;1,816852636;0,513171045;14008;14377
+Inverse FFT of MH5_MiddleRight.tif;Stimulated;1,779052595;0,531903213;24590;26159
+Inverse FFT of MH5_BottomMiddle.tif;Stimulated;1,81653781;0,390765067;17737;13862
+Inverse FFT of MH5_BottomLeft.tif;Stimulated;1,829028838;0,508706793;19123;19456
+Inverse FFT of MH5_TopMiddle.tif;Stimulated;1,802115101;0,609955098;18262;22278
+Inverse FFT of MH5_TopRight.tif;Stimulated;1,854015947;0,6433961;14976;19271
+Inverse FFT of MH5_TopLeft.tif;Stimulated;1,800374498;0,602463586;27805;33503
+Inverse FFT of MH5_MiddleLeft.tif;Stimulated;1,814526136;0,587031791;28593;33570
+Inverse FFT of MH5_MiddleMiddle.tif;Stimulated;1,842228577;0,621414387;27192;33795
