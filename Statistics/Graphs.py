@@ -13,6 +13,7 @@ option = ["numb", "Number of Fibrils", "Total number of Fibrils"]
 # option = ["w", "Fibril width (µm)", "Average Fibril width"]
 
 All = False
+Or = True
 
 groups = [("MH21","MH5"), ("MH25", "MH26"), ("MH28", "MH27"), ("MH7", "MH8.1", "MH8.2")]
 
@@ -178,6 +179,7 @@ if Sac_tracing:
 
 #--------------------------------------Fibril----------------------------------------------#
 
+
 if Fibril:
     
     info = []
@@ -264,6 +266,37 @@ if Fibril:
         plt.tight_layout(pad=3)
         plt.show()
         
-    # if Or:
         
         
+    if Or:
+        df = pd.DataFrame(data_for_boxplot, columns=['Group', "con", "numb", "l", "lstd", "w", "wstd", "or1", "or2","or3", "or4"])
+        averages = df.groupby("Group")[["or1", "or2", "or3", "or4"]].mean().reset_index()
+
+        palette = ['#1f77b4', '#ff7f0e','#ff7f0e'] 
+        
+
+        melted_df = df.melt(id_vars=["Group", "con"], value_vars=["or1", "or2", "or3", "or4"],
+                            var_name="Orientation", value_name="Value")
+
+        # Create a separate figure for each pair of groups
+        for pair in groups:
+            # Create a figure with subplots for each group in the pair
+            num_groups = len(pair)
+            fig, axes = plt.subplots(1, num_groups, figsize=(5 * num_groups, 5), constrained_layout=True)
+            
+            for ax, group in zip(axes, pair):
+                group_data = melted_df[melted_df["Group"] == group]
+                
+                vis = ["|","/","-","\\"]*9
+                
+                # sns.boxplot(data=group_data, x="Orientation", y="Value", ax=ax,hue= "con", palette={"Control": "#1f77b4", "Stimulated": "#ff7f0e"})
+                sns.barplot(data=group_data, x=vis, y="Value", ax=ax,hue= "con", palette={"Control": "#1f77b4", "Stimulated": "#ff7f0e"},
+                            capsize=.1, legend=False)
+                ax.set_title(f"Group {group}")
+                ax.set_xlabel("Orientation")
+                ax.set_ylabel("Orientation Frequency")
+            
+            # Set a common title for the figure
+            fig.legend(handles=[control_patch, stimulated_patch], title="Group Type")
+            # fig.suptitle(f"Distribution of Orientations for Groups {', '.join(pair)}", fontsize=16)
+            plt.show()
