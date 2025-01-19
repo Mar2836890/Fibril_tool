@@ -4,7 +4,7 @@ Created on Wed Jun 16 10:57:50 2021
 
 @author: Linde Schoenmaker
 
-Changed on ...
+Last edited on Jan 10 2025
 
 @editor: Marjolein van Tol
 """
@@ -27,6 +27,7 @@ global radius           # radius for crowded function
 global max_distance     # original limit was set to 14, max distance between ends to get connected points
 global limit1           # original limit was set to 16, to get the labels of all the centroids that are close to center
 global limit2           # to get the labels of all the endpoints close to the endpoints
+
 
 #--------------Code-----------------------
 values = []        # for displaying plot with orientation distribution

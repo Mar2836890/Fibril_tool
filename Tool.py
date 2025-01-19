@@ -68,16 +68,14 @@ def algorithms(input_data, param_list):
                 avg_len = four_calc(file_path, param_list, visualize= False)
                 results.append([file1, avg_len, param_list[3][1] , param_list[4][1]]) 
         
-        
         # Create a DataFrame from the results
         df_results = pd.DataFrame(results, columns=columns)
-        # Save the DataFrame to a CSV file
+
         path = os.path.join(results_folder, result_file)
         df_results.to_csv(path, index=False)   
         
         complete_processing("Processing Complete!", result_file)
     
-
     except:
         run_button.config(state=tk.NORMAL)  # Re-enable the button
         result_label.config(text=f" ")
@@ -94,9 +92,9 @@ def run_algorithm():
 
     input_data = clicked.get()
     result_label.config(text="Running...") 
-    run_button.config(state=tk.DISABLED)  # Disable the button
+    run_button.config(state=tk.DISABLED)  
     
-    # Gather the parameter values from the entry fields, check input value
+    # Gather the parameter values from the entry fields
     params_list = []
     for param, entry, type_par in param_entries:
         param_value = entry.get()  
@@ -135,7 +133,7 @@ def run_algorithm():
 # Function to handle completion of processing and enable file opening
 def complete_processing(result, result_file_path):
     result_label.config(text=f" ")
-    run_button.config(state=tk.NORMAL)  # Re-enable the button
+    run_button.config(state=tk.NORMAL) 
     current_file_label.config(text="Processing: None")
     path = os.path.join(results_folder, result_file_path)
 
@@ -164,7 +162,6 @@ def update_current_file(file_name, warning):
 
 # Function to update the parameter fields based on selected algorithm
 def update_parameters():
-    # Clear previous parameter widgets
     for widget in parameter_frame.winfo_children():
         widget.destroy()
 
@@ -182,8 +179,8 @@ def update_parameters():
     description_label.config(text=method_descriptions[selected_method])
     
     # Create input fields for each parameter
-    global param_entries  # List to store the parameter entry widgets
-    param_entries = []  # Clear the list of entries
+    global param_entries  
+    param_entries = []  
     
     for param, default_value, type, information in params:
         label = tk.Label(parameter_frame, text=param, font=("Arial", 15, "bold"))
@@ -194,13 +191,13 @@ def update_parameters():
 
         # Create the entry widget for the parameter, using the default value
         entry = tk.Entry(parameter_frame)
-        entry.insert(0, str(default_value))  # Set default value
+        entry.insert(0, str(default_value))  
         entry.pack()
         
         label_space = tk.Label(parameter_frame, text=" ")
         label_space.pack(pady=3)
 
-        param_entries.append((param, entry, type))  # Store the (parameter_name, entry) tuple
+        param_entries.append((param, entry, type))  
 
 
 # Function to handle image uploading
@@ -217,9 +214,8 @@ def upload_images():
 def update_image_list():
     images_listbox.delete(0, tk.END)
     if not os.path.exists(images_test_folder):
-        os.makedirs(images_test_folder)  # Ensure the directory exists (optional, based on needs)
-    
-    # Iterate over files in the current directory (or Images_to_test folder)
+        os.makedirs(images_test_folder) 
+
     for image_file in os.listdir(images_test_folder):
         images_listbox.insert(tk.END, image_file)
 
@@ -264,27 +260,24 @@ def image_error(file):
 def reset_parameters():
     # Iterate over each parameter entry and reset to the default value
     for param, entry, type_par in param_entries:
-        # Get the default value from the alg_param dictionary for the selected algorithm
+
         selected_algorithm = clicked.get()
         default_value = next((default for name, default, type, info in alg_param[selected_algorithm] if name == param), None)
         
         # Reset the entry to the default value
-        entry.delete(0, tk.END)  # Clear the current value
-        entry.insert(0, str(default_value))  # Insert the default value
+        entry.delete(0, tk.END)  
+        entry.insert(0, str(default_value))  
 
 
 #------------------------------Tkinter Main Window-----------------------------------
 
-
 if __name__ == '__main__':    
     
     # Determine if the script is running as a bundled executable (PyInstaller)
-    if getattr(sys, 'frozen', False):  # Running as a PyInstaller executable
-        # Get the folder where the executable is located (not the _internal folder)
+    if getattr(sys, 'frozen', False):  
         app_path = os.path.dirname(sys.executable)
     else:
-        # Running as a script (development mode)
-        app_path = os.path.dirname(os.path.abspath(__file__))  # The current script directory
+        app_path = os.path.dirname(os.path.abspath(__file__))  
 
     # Define the relative paths for Results and Images_to_test folders
     results_folder = os.path.join(app_path, 'Results')
@@ -325,25 +318,24 @@ if __name__ == '__main__':
     # Set up the Tkinter window
     root = tk.Tk()
     root.title("Algorithm Runner")
-    root.geometry("1300x800")  # Adjust the size to accommodate the two-column layout
+    root.geometry("1300x800")  
 
     # Configure the main frame
     main_frame = tk.Frame(root)
     main_frame.pack(fill=tk.BOTH, expand=True)
 
-    # Left Column Frame (for image management) with fixed dimensions
-    left_frame = tk.Frame(main_frame, width=600, height=800)  # Fixed width and height
+
+    left_frame = tk.Frame(main_frame, width=600, height=800)  
     left_frame.grid(row=0, column=0, padx=10, pady=10, sticky="n")
-    left_frame.grid_propagate(False)  # Prevent resizing based on content
-    # Configure grid inside left_frame
-    left_frame.columnconfigure(0, weight=1)  # Allow widgets in column 0 to stretch horizontally
-    left_frame.rowconfigure(2, weight=1)    # Allow the images_listbox (row 2) to stretch vertically
+    left_frame.grid_propagate(False)  
+
+    left_frame.columnconfigure(0, weight=1)  
+    left_frame.rowconfigure(2, weight=1)    
         
-    # Right Column Frame (for algorithm and parameters)
+
     right_frame = tk.Frame(main_frame, width=600, height=800)
     right_frame.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
-    # Image management section in the left column
     upload_button = tk.Button(left_frame, text="Upload Images", command=upload_images)
     upload_button.grid(row=0, column=0, pady=5)
 
@@ -391,7 +383,7 @@ The algorithm returns the following information:
 - Some input parameter setting
 """
     }
-    # Add a label for the description in the left column
+    
     description_label = tk.Label(left_frame,text=method_descriptions["Fibril Analysis"], height= 30, wraplength= 400, justify="left", anchor="n")
     description_label.grid(row=4, column=0, sticky="nsew")
 
@@ -400,15 +392,12 @@ The algorithm returns the following information:
     clicked = tk.StringVar()
     clicked.set("Fibril Analysis")
 
-    # Create Dropdown menu in the right column
     drop = tk.OptionMenu(right_frame, clicked, *options)
     drop.grid(row=0, column=0, pady=10)
 
-    # Frame to hold parameter fields in the right column
     parameter_frame = tk.Frame(right_frame)
     parameter_frame.grid(row=1, column=0, pady=10)
 
-    # Position the buttons side-by-side using a frame in the right column
     button_frame = tk.Frame(right_frame)
     button_frame.grid(row=2, column=0, pady=5)
 
@@ -418,19 +407,15 @@ The algorithm returns the following information:
     reset_button = tk.Button(button_frame, text="Reset Parameters", command=reset_parameters)
     reset_button.grid(row=0, column=1, padx=5)
 
-    # Current File Label in the right column
     current_file_label = tk.Label(right_frame, text="No file is being processed.")
     current_file_label.grid(row=3, column=0, pady=5)
 
-    # Result Label in the right column
     result_label = tk.Label(right_frame, text="")
     result_label.grid(row=4, column=0, pady=5)
     
-    # Current File Label in the right column
     warning_time_label = tk.Label(right_frame, text="")
     warning_time_label.grid(row=5, column=0, pady=5)
 
-    # List to store parameter entry widgets
     param_entries = []
 
     # Call update_parameters whenever the selected algorithm changes
@@ -440,7 +425,3 @@ The algorithm returns the following information:
     update_parameters()
 
     root.mainloop()
-
-
-
-
