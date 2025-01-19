@@ -8,9 +8,9 @@ FFT = False
 Sac_tracing = False
 
 Fibril = True
-option = ["numb", "Number of Fibrils", "Total number of Fibrils"]
+# option = ["numb", "Number of Fibrils", "Total number of Fibrils"]
 # option = ["l", "Fibril lenght (µm)", "Average Fibril lenght"]
-# option = ["w", "Fibril width (µm)", "Average Fibril width"]
+option = ["w", "Fibril width (µm)", "Average Fibril width"]
 
 All = False
 Or = True
@@ -89,8 +89,8 @@ if FFT:
         # Add a single legend for all subplots
         control_patch = plt.Line2D([0], [0], color='#1f77b4', lw=4, label='Control')
         stimulated_patch = plt.Line2D([0], [0], color='#ff7f0e', lw=4, label='Stimulated')
-        fig.legend(handles=[control_patch, stimulated_patch], title="Group Type", loc='upper center', ncol=2)
-
+        fig.legend(handles=[control_patch, stimulated_patch], title="Group Type")
+        
         plt.tight_layout(pad=3)
         plt.show()
 
@@ -170,7 +170,7 @@ if Sac_tracing:
         # Add a single legend for all subplots
         control_patch = plt.Line2D([0], [0], color='#1f77b4', lw=4, label='Control')
         stimulated_patch = plt.Line2D([0], [0], color='#ff7f0e', lw=4, label='Stimulated')
-        fig.legend(handles=[control_patch, stimulated_patch], title="Group Type", loc='upper center', ncol=2)
+        fig.legend(handles=[control_patch, stimulated_patch], title="Group Type")
 
         plt.tight_layout(pad=3)
         plt.show()
@@ -261,7 +261,7 @@ if Fibril:
         # Add a single legend for all subplots
         control_patch = plt.Line2D([0], [0], color='#1f77b4', lw=4, label='Control')
         stimulated_patch = plt.Line2D([0], [0], color='#ff7f0e', lw=4, label='Stimulated')
-        fig.legend(handles=[control_patch, stimulated_patch], title="Group Type", loc='upper center', ncol=2)
+        fig.legend(handles=[control_patch, stimulated_patch], title="Group Type")
 
         plt.tight_layout(pad=3)
         plt.show()
